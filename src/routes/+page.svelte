@@ -1,3 +1,5 @@
+<!-- src\routes\+page.svelte -->
+
 <script>
   import { fade, scale } from 'svelte/transition';
   let email = "";
@@ -5,16 +7,6 @@
 
 
 <div class="flex flex-col min-h-screen">
-  <nav class="bg-gray-800 text-white py-4">
-    <div class="container mx-auto flex justify-between items-center px-6">
-      <div class="font-bold text-xl">Brand</div>
-      <div class="space-x-4">
-        <a href="#features" class="hover:underline">Features</a>
-        <a href="#products" class="hover:underline">Products</a>
-        <a href="#contact" class="hover:underline">Contact</a>
-      </div>
-    </div>
-  </nav>
 
   <header class="bg-gray-700 text-white flex-1 flex items-center justify-center" style="min-height: 60vh;">
     <div class="text-center">
@@ -80,8 +72,4 @@
       </div>
     </div>
   </section>
-
-  <footer class="bg-gray-800 text-white text-center py-4">
-    <p>&copy; 2024 Brand. All rights reserved.</p>
-  </footer>
 </div>
