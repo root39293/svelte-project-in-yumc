@@ -1,0 +1,87 @@
+<script>
+  import { fade, scale } from 'svelte/transition';
+  let email = "";
+</script>
+
+
+<div class="flex flex-col min-h-screen">
+  <nav class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center px-6">
+      <div class="font-bold text-xl">Brand</div>
+      <div class="space-x-4">
+        <a href="#features" class="hover:underline">Features</a>
+        <a href="#products" class="hover:underline">Products</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gray-700 text-white flex-1 flex items-center justify-center" style="min-height: 60vh;">
+    <div class="text-center">
+      <h1 class="text-5xl font-bold mb-4">Welcome to Our Website</h1>
+      <p class="mb-8">Discover our products and services</p>
+      <a href="news" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Get in Touch</a>
+    </div>
+  </header>
+
+  <section id="features" class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div transition:fade class="bg-gray-100 p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold mb-2">Feature One</h3>
+        <p class="text-gray-700">Description of feature one.</p>
+      </div>
+      <div transition:fade class="bg-gray-100 p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold mb-2">Feature Two</h3>
+        <p class="text-gray-700">Description of feature two.</p>
+      </div>
+      <div transition:fade class="bg-gray-100 p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold mb-2">Feature Three</h3>
+        <p class="text-gray-700">Description of feature three.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="bg-gray-200 py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8">Our Products</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div transition:scale class="rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold mb-2">Product One</h3>
+          <p class="text-gray-700">Description of product one.</p>
+        </div>
+        <div transition:scale class="rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold mb-2">Product Two</h3>
+          <p class="text-gray-700">Description of product two.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
+      <div class="flex justify-center">
+        <form class="w-full max-w-lg">
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
+                Email
+              </label>
+              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="email" type="email" placeholder="you@example.com" bind:value={email}>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-white text-center py-4">
+    <p>&copy; 2024 Brand. All rights reserved.</p>
+  </footer>
+</div>
