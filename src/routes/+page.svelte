@@ -7,9 +7,15 @@
   let email = "";
 
   function scrollToFeatures() {
-    goto('#features', { behavior: 'smooth', inertia: true });
+    const featuresSection = document.getElementById('features');
+    featuresSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 </script>
+<style>
+  body{
+    scroll-behavior:smooth;
+  }
+</style>
 <div class="flex flex-col min-h-screen">
   <header class="bg-gradient-to-r from-blue-700 to-blue-300 text-white flex-1 flex items-center justify-center min-h-screen">
     <div class="text-center">
