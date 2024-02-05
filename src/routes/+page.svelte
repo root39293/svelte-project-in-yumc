@@ -1,18 +1,21 @@
 <!-- src\routes\+page.svelte -->
 
 <script>
+  
   import { fade, scale } from 'svelte/transition';
+  import { goto } from '$app/navigation';
   let email = "";
+
+  function scrollToFeatures() {
+    goto('#features', { behavior: 'smooth', inertia: true });
+  }
 </script>
-
-
 <div class="flex flex-col min-h-screen">
-
-  <header class="bg-gray-700 text-white flex-1 flex items-center justify-center" style="min-height: 60vh;">
+  <header class="bg-gradient-to-r from-blue-700 to-blue-300 text-white flex-1 flex items-center justify-center min-h-screen">
     <div class="text-center">
-      <h1 class="text-5xl font-bold mb-4">Welcome to Our Website</h1>
-      <p class="mb-8">Discover our products and services</p>
-      <a href="news" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Get in Touch</a>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Welcome to Our Website</h1>
+      <p class="mb-8 text-lg md:text-xl lg:text-2xl">Discover our products and services</p>
+      <button on:click={scrollToFeatures} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">Get in Touch</button>
     </div>
   </header>
 
@@ -50,6 +53,8 @@
     </div>
   </section>
 
+
+
   <section id="contact" class="py-16">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
@@ -72,4 +77,5 @@
       </div>
     </div>
   </section>
+
 </div>
