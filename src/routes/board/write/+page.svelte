@@ -1,12 +1,24 @@
 <!-- src\routes\board\write\+page.svelte -->
 
 <script>
-  let title = '';
+	import { createEventDispatcher } from "svelte";
+  // import {posts} from './post-store';
+  // let title = '';
+  // let content = '';
+  // const dispatch = createEventDispatcher();
+  // const submitPost = () => {
+  //   console.log('Submitting post', { title, content });
+  //   const postData = {
+  //     title: title,
+  //     content: content
+  //   };
+  // };  let title = '';
+  let title ='';
   let content = '';
 
-  const submitPost = () => {
-    console.log('Submitting post', { title, content });
-  };
+const submitPost = () => {
+  console.log('Submitting post', { title, content });
+};
 </script>
 
 <div class="container mx-auto p-6 max-w-4xl">
