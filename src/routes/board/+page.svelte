@@ -2,15 +2,21 @@
 
 <script>
   import { onMount } from 'svelte';
-  import { posts } from './write/+page.svelte'; // write 페이지에서 정의한 게시글 store import
+  import { writable } from 'svelte/store';
 
-  let postList = [];
+  // 게시글 목록을 저장하는 store 생성
+  const posts = writable([]);
 
-  onMount(() => {
-    // store의 값을 초기화
-    posts.subscribe(value => {
-      postList = value;
-    });
+  onMount(async () => {
+    posts.set([
+      {
+        id: 1,
+        title: "First Post",
+        summary: "This is the summary of the first post.",
+        author: "Author Name",
+        createdAt: "2024-01-01",
+      },
+    ]);
   });
 </script>
 
@@ -21,7 +27,7 @@
   </div>
 
   <div class="space-y-4">
-    {#each postList as post}
+    {#each $posts as post}
       <div class="p-4 bg-white rounded-lg shadow-lg">
         <h3 class="text-xl font-semibold">{post.title}</h3>
         <p class="text-gray-600">{post.summary}</p>

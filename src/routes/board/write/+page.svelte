@@ -1,44 +1,11 @@
 <!-- src\routes\board\write\+page.svelte -->
 
 <script>
-  import { goto } from '$app/navigation';
-  import { writable } from 'svelte/store';
-
-  // 게시글 목록을 저장하는 store 생성
-  const posts = writable([
-    {
-      id: 1,
-      title: "First Post",
-      summary: "This is the summary of the first post.",
-      author: "Author Name",
-      createdAt: "2024-01-01",
-    },
-  ]);
-
   let title = '';
   let content = '';
 
   const submitPost = () => {
-    event.preventDefault();
-    if (title.trim() === '' || content.trim() === '') {
-      alert('Please fill in both title and content fields');
-      return;
-    }
-
-    // 새로운 게시글 생성
-    const newPost = {
-      id: posts.length + 1,
-      title,
-      summary: content.substring(0, 50), // 내용의 일부를 요약하여 사용 (예시)
-      author: "Anonymous", // 작성자는 임의로 설정 (예시)
-      createdAt: new Date().toLocaleString()
-    };
-
-    // 기존 게시글 목록에 새로운 게시글 추가
-    posts.update(currentPosts => [...currentPosts, newPost]);
-
-    // 게시글 등록 후 게시판 페이지로 이동
-    goto('/board');
+    console.log('Submitting post', { title, content });
   };
 </script>
 
