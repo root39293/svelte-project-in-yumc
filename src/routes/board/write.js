@@ -3,10 +3,7 @@ import { writable } from 'svelte/store';
 const posts = writable([
 	{
 		id: '1',
-		title: 'First Post',
-		summary: 'This is the summary of the first post.',
-		author: 'Author Name',
-		createdAt: '2024-01-01'
+		title: 'First Post'
 	}
 ]);
 const customPostsStore = {
@@ -30,3 +27,4 @@ const customPostsStore = {
 		});
 	}
 };
+export default customPostsStore;
