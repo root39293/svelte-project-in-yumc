@@ -14,7 +14,7 @@ const customPostsStore = {
 			id: Math.random().toString()
 		};
 		posts.update((items) => {
-			return [newpost, ...items];
+			return [...items, newpost];
 		});
 	},
 	updatePost: (id, postData) => {
