@@ -1,12 +1,34 @@
 <!-- src\routes\board\write\+page.svelte -->
 
 <script>
+  import posts from "./write";
+  import {createEventDispatcher} from "svelte";
+  const dispatch = createEventDispatcher();
+  export let id = null;
   let title = '';
   let content = '';
 
   const submitPost = () => {
-    console.log('Submitting post', { title, content });
+    const postData = {
+      title:title,
+      content:content
+    }
+    if(id){
+      posts.updatedPost(id,postData);
+    }
+    else{
+      posts.addPost(postData);
+    }
+    dispatch("save");
   };
+  if(id){
+    const unsubscribe = posts.subscribe(items =>{
+      const selectedPost = items.find(i => i.id === id);
+      title = selectedPost.title;
+      content = selectedPost.content;
+    })
+    unsubscribe();
+  }
 </script>
 
 <div class="container mx-auto p-6 max-w-4xl">
