@@ -2,20 +2,6 @@
 
 <script>
   import posts from "./write";
-  import {createEventDispatcher} from "svelte";
-  const dispatch = createEventDispatcher();
-  export let id = null;
-  // let title = '';
-  // let content = '';
-
-  if(id){
-    const unsubscribe = posts.subscribe(items =>{
-      const selectedPost = items.find(i => i.id === id);
-      title = selectedPost.title;
-      content = selectedPost.content;
-    })
-    unsubscribe();
-  }
 </script>
 
 <div class="container mx-auto p-6">
