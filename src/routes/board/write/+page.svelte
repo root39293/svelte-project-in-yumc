@@ -1,26 +1,23 @@
 <!-- src\routes\board\write\+page.svelte -->
 
 <script>
-  // import posts from "./write";
-  // import {createEventDispatcher} from "svelte";
-  // const dispatch = createEventDispatcher();
+  import posts from "./write";
+  import {createEventDispatcher} from "svelte";
+  const dispatch = createEventDispatcher();
   let title = '';
   let content = '';
-  // const submitPost = () => {
-  //   const postData = {
-  //     title:title,
-  //     content:content
-  //   }
-  //   if(id){
-  //     posts.updatedPost(id,postData);
-  //   }
-  //   else{
-  //     posts.addPost(postData);
-  //   }
-  //   dispatch("save");
-  // };
   const submitPost = () => {
-    console.log('Submitting post', { title, content });
+    const postData = {
+      title:title,
+      content:content
+    }
+    if(id){
+      posts.updatedPost(id,postData);
+    }
+    else{
+      posts.addPost(postData);
+    }
+    dispatch("save");
   };
 </script>
 
