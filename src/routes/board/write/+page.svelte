@@ -3,6 +3,7 @@
 <script>
   import posts from "./write";
   import {createEventDispatcher} from "svelte";
+  export let id = null;
   const dispatch = createEventDispatcher();
   let title = '';
   let content = '';

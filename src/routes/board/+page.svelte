@@ -5,8 +5,8 @@
   import {createEventDispatcher} from "svelte";
   const dispatch = createEventDispatcher();
   export let id = null;
-  let title = '';
-  let content = '';
+  // let title = '';
+  // let content = '';
 
   if(id){
     const unsubscribe = posts.subscribe(items =>{
