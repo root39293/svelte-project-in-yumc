@@ -3,19 +3,14 @@
 <script>
   
   import { fade, scale } from 'svelte/transition';
-  import { goto } from '$app/navigation';
   let email = "";
-
-  function scrollToFeatures() {
-    goto('#features', { behavior: 'smooth', inertia: true });
-  }
 </script>
 <div class="flex flex-col min-h-screen">
   <header class="bg-gradient-to-r from-blue-700 to-blue-300 text-white flex-1 flex items-center justify-center min-h-screen">
     <div class="text-center">
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Welcome to Our Website</h1>
       <p class="mb-8 text-lg md:text-xl lg:text-2xl">Discover our products and services</p>
-      <button on:click={scrollToFeatures} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">Get in Touch</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">Get in Touch</button>
     </div>
   </header>
 

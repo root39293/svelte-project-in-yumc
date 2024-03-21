@@ -1,20 +1,21 @@
 <!-- src\routes\board\+page.svelte -->
 
 <script>
-  import { onMount } from 'svelte';
-  let posts = [];
+  import posts from "./write";
+  import {createEventDispatcher} from "svelte";
+  const dispatch = createEventDispatcher();
+  export let id = null;
+  let title = '';
+  let content = '';
 
-  onMount(async () => {
-    posts = [
-      {
-        id: 1,
-        title: "First Post",
-        summary: "This is the summary of the first post.",
-        author: "Author Name",
-        createdAt: "2024-01-01",
-      },
-    ];
-  });
+  if(id){
+    const unsubscribe = posts.subscribe(items =>{
+      const selectedPost = items.find(i => i.id === id);
+      title = selectedPost.title;
+      content = selectedPost.content;
+    })
+    unsubscribe();
+  }
 </script>
 
 <div class="container mx-auto p-6">
@@ -24,7 +25,7 @@
   </div>
 
   <div class="space-y-4">
-    {#each posts as post}
+    {#each $posts as post}
       <div class="p-4 bg-white rounded-lg shadow-lg">
         <h3 class="text-xl font-semibold">{post.title}</h3>
         <p class="text-gray-600">{post.summary}</p>
